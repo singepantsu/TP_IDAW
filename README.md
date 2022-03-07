@@ -1,5 +1,6 @@
 # TP_IDAW
-Les TPs de l'UV IDAW
+Ensemble des TPs de l'UV IDAW
+
 Progrès Dans chaque TP:
 
 TP 1:
