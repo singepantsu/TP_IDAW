@@ -2,13 +2,29 @@
     <head>
         <title>Magnifique Site</title>
         <style>
-            #bouton{
-                color: blueviolet;
-                background-color: green;
+            body{
+                background-color:aqua;
+            }
+            #bouton {
+                color: black;
+                background-color: blueviolet;
+                margin: 8px;
+            }
+            .overlay {
+                position: absolute;
+                width: 25%;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                background-image: url('schnoz.jpg');
+                max-height: 100%;
+                overflow: hidden;
             }
         </style>
     </head>
     <body>
-        <input id="bouton" type ="bouton" value ="Ce bouton ne sert à rien">
+        <div class="overlay">
+            <input id="bouton" type ="bouton" value ="Ce bouton ne sert à rien">
+        </div>
     </body>
 </html>
