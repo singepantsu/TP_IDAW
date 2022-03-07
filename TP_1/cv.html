@@ -1,44 +1,80 @@
-<html>
-    <head>
-        <title>CV moi</title>
-        <style>
-            body{
-                background-color:aqua;
-            }
-            #schnoz {
-                margin: 5px;
-                max-width:35%;
-                height: auto;
-            }
-            #bouton {
-                color: black;
-                background-color: blueviolet;
-            }
-            .overlay {
-                position: absolute;
-                width: 25%;
-                top: 0;
-                bottom: 0;
-                left: 0;
-                background-color: darkslategray;
-                max-height: 100%;
-                overflow: hidden;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="overlay" style="text-align: center;">
-            <input id = "Schnoz" type = "image" src="schnoz.jpg"/>
-            <br>
-            <label for="Schnoz">Bienvenue sur le site de Schnoz</label>
-            <nav class="menu">
-                <ul>
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="cv.html">CV</a></li>
-                    <li><a href="hobbies.html">Mes hobbies</a></li>
-                </ul>
-            </nav>
-            <input id="bouton" type ="button" value ="Ce bouton ne sert à rien">
-        </div>
-    </body>
-</html>
+<!DOCTYPE html>
+    <html doc>
+        <head>
+            <title>CV moi</title>
+            <meta charset="utf-8">
+            <style>
+                #schnoz {
+                    margin: 5px;
+                    width: 35%;
+                    height: auto;
+                }
+                #bouton {
+                    color: black;
+                    background-color: blueviolet;
+                }
+                .overlay {
+                    position: absolute;
+                    border: 2px solid black;
+                    width: 25%;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    background-color: darkslategray;
+                    max-height: 100%;
+                    overflow: hidden;
+                }
+                .firstLayer {
+                    position: absolute;
+                    width: 75%;
+                    top: 0;
+                    bottom: 0;
+                    left: 25%;
+                    background-color: aqua;
+                    max-height: 100%;
+                    overflow: scroll;
+                }
+                .cv {
+                    left:50%;
+                    width: 40%;
+                    background-color: wheat;
+                    max-height:max-content;
+                    min-height: 100%;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="overlay" style="text-align: center;">
+                <img id="schnoz" src="schnoz.jpg">
+                <br>
+                <label for="Schnoz">Bienvenue sur le site de Schnoz</label>
+                <nav class="menu">
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="cv.html">CV</a></li>
+                        <li><a href="hobbies.html">Mes hobbies</a></li>
+                    </ul>
+                </nav>
+                <input id="bouton" type ="button" value ="Ce bouton ne sert &agrave; rien">
+            </div>
+            <div class="firstLayer">
+                <div class="cv" style="text-align: justify;">
+                    <h1 style="text-align: center;">Mon CV</h1>
+                    <h2>Profil</h2>
+                    <h4>Etudiant serieux et motivé passionné par les mathématiques</h4>
+                    <h2>Parcours scolaire</h2>
+                    <h3>IMT Nord-Europe</h3>
+                    <h4>Eleve ingenieur.</h4>
+                    <h3>Lycée St-Louis Paris</h3>
+                    <h4>CPGE de mathematiques.</h4>
+                    <h2>parcours professionnel</h2>
+                    <h3>Mission au Conseil Régional d'Ile-de-France</h3>
+                    <h4>Developpement d'une Application en low-code.</h4>
+                    <h3>Stage au sein de Querydine SAS</h3>
+                    <h4>Developpement de base de données.</h4>
+                    <h2>Loisirs et centres d'intérêts</h2>
+                    <h4>Pour plus de renseignements sur cette section, consultez :<a href="hobbies.html">Mes Hobbies</a></h4>
+                </div>
+            </div>
+        </body>
+    </html>
