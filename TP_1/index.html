@@ -3,36 +3,13 @@
         <head>
             <title>Magnifique Site</title>
             <meta charset="utf-8">
-            <style>
-                body{
-                    background-color:aqua;
-                }
-                #schnoz {
-                    margin: 5px;
-                    max-width:20%;
-                    height: auto;
-                }
-                #bouton {
-                    color: black;
-                    background-color: blueviolet;
-                }
-                .overlay {
-                    position: absolute;
-                    width: 25%;
-                    top: 0;
-                    bottom: 0;
-                    left: 0;
-                    background-color: darkslategray;
-                    max-height: 100%;
-                    overflow: hidden;
-                }
-            </style>
+            <link rel="stylesheet" href="style.css">
         </head>
         <body>
             <div class="overlay" style="text-align: center;">
                 <input id = "Schnoz" type = "image" src="schnoz.jpg"/>
                 <br>
-                <label for="Schnoz">Bienvenue sur le site de Schnoz</label>
+                <label id="lab" for="Schnoz">Bienvenue sur le site de Schnoz</label>
                 <nav class="menu">
                     <ul>
                         <li><a href="index.html">Accueil</a></li>
@@ -41,6 +18,17 @@
                     </ul>
                 </nav>
                 <input id="bouton" type ="button" value ="Ce bouton ne sert à rien">
+            </div>
+            <div class="partie-flex">
+                <div class = "premier-flex">
+                    <h1><a href="index.html">Mon super CV</a></h1>
+                </div>
+                <div class = "second-flex">
+                    <h1><a href="index.html">Accueil</a></h1>
+                </div>
+                <div class = "dernier-flex">
+
+                </div>
             </div>
         </body>
     </html>

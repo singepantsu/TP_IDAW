@@ -3,51 +3,13 @@
         <head>
             <title>CV moi</title>
             <meta charset="utf-8">
-            <style>
-                #schnoz {
-                    margin: 5px;
-                    width: 35%;
-                    height: auto;
-                }
-                #bouton {
-                    color: black;
-                    background-color: blueviolet;
-                }
-                .overlay {
-                    position: absolute;
-                    border: 2px solid black;
-                    width: 25%;
-                    top: 0;
-                    bottom: 0;
-                    left: 0;
-                    background-color: darkslategray;
-                    max-height: 100%;
-                    overflow: hidden;
-                }
-                .firstLayer {
-                    position: absolute;
-                    width: 75%;
-                    top: 0;
-                    bottom: 0;
-                    left: 25%;
-                    background-color: aqua;
-                    max-height: 100%;
-                    overflow: scroll;
-                }
-                .cv {
-                    left:50%;
-                    width: 40%;
-                    background-color: wheat;
-                    max-height:max-content;
-                    min-height: 100%;
-                }
-            </style>
+            <link rel="stylesheet" href="style.css">
         </head>
         <body>
             <div class="overlay" style="text-align: center;">
                 <img id="schnoz" src="schnoz.jpg">
                 <br>
-                <label for="Schnoz">Bienvenue sur le site de Schnoz</label>
+                <label id="lab" for="Schnoz">Bienvenue sur le site de Schnoz</label>
                 <nav class="menu">
                     <ul>
                         <li><a href="index.html">Accueil</a></li>

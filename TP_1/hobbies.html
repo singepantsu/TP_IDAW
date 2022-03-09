@@ -3,36 +3,13 @@
         <head>
             <title>Mez Obyz</title>
             <meta charset="utf-8">
-            <style>
-                body{
-                    background-color:aqua;
-                }
-                #schnoz {
-                    margin: 5px;
-                    max-width:20%;
-                    height: auto;
-                }
-                #bouton {
-                    color: black;
-                    background-color: blueviolet;
-                }
-                .overlay {
-                    position: absolute;
-                    width: 25%;
-                    top: 0;
-                    bottom: 0;
-                    left: 0;
-                    background-color: darkslategray;
-                    max-height: 100%;
-                    overflow: hidden;
-                }
-            </style>
+            <link rel="stylesheet" href="style.css">
         </head>
         <body>
             <div class="overlay" style="text-align: center;">
                 <input id = "Schnoz" type = "image" src="schnoz.jpg"/>
                 <br>
-                <label for="Schnoz">Bienvenue sur le site de Schnoz</label>
+                <label id="lab" for="Schnoz">Bienvenue sur le site de Schnoz</label>
                 <nav class="menu">
                     <ul>
                         <li><a href="index.html">Accueil</a></li>
@@ -42,5 +19,16 @@
                 </nav>
                 <input id="bouton" type ="button" value ="Ce bouton ne sert à rien">
             </div>
+            <div class="prem-flex">
+                <div class="sec-flex">
+                    <h1><u>Vive la pétanque entre copains</u></h1><br>
+                    <img class="simp-image" src="petanque.jpg">
+                </div>
+                <div class="sec-flex">
+                    <h1><u>Jouer De l'orgue!</u></h1><br>
+                    <img class="simp-image" src="orgue.jpg">
+                </div>
+            </div>
+            
         </body>
     </html>
