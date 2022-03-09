@@ -26,15 +26,34 @@ h3, .h3 {
     top: 0;
     bottom: 0;
     left: 0;
-    background-color: darkslategray;
+    background: linear-gradient(90deg, rgba(40,38,40,1) 0%, darkslategray 96%, rgb(49, 92, 92) 100%);
+    border-right: 1px solid black;
     max-height: 100%;
     overflow: hidden;
 }
+.prem-flex {
+    display: flex;
+    margin-left: 25%;
+    justify-content: space-around;
+    align-content: space-around;
+    box-sizing: border-box;
+}
+.sec-flex {
+    background-color:lightgreen;
+    display: flex;
+    border: 5px solid green ;
+    flex-flow: column;
+    align-items: center;
+    text-align: center;
+    width: 40%
+}
 footer {
+    background: linear-gradient(antiquewhite,rgb(162, 177, 177));
     position: fixed;
     bottom: 0;
     left: 0px;
-    height: 30px;
+    height: 10px;
     width: 100%;
-    background: antiquewhite;
-    padding: 0 10px 0 10px; }
+    border-top: 1px solid black;
+    padding: 5px 10px 10px 10px; 
+}

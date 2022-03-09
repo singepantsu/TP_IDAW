@@ -1,5 +1,5 @@
 <footer>
-    <p>© 2022 John Doe</p>
+    © 2022 John Doe
 </footer>
 </body>
 </html>
