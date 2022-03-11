@@ -8,7 +8,7 @@
                     $site = "Instagram";  
                     $width = 170;
                     $height = 100;
-                    echo "<a href=\"index.php?page=exterieur&site=$site\">"; 
+                    echo "<a href=\"index.php?page=exterieur&lang=EN&site=$site\">"; 
                     echo "<img src=\"".$image."\" width =" . $width . " height =" . $height . "></a>";
                     $image = "logo-rond-twitter.png"; 
                     $site = "Twitter";  
