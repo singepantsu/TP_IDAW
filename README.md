@@ -10,5 +10,5 @@ TP 2:
 TP 3:
   Commencé.
   1.1.4: Les strings des champs de textes sont passés en paramêtres dans l'URL.
-  1.2.3: On voit que les données n'apparaissent plus dans l'URL, POST est donc plus sécurisée que GET.
+  1.2.3: On voit que les données n'apparaissent plus dans l'URL, mais cela n'est pas forcement plus sécurisé que GET.
 TP 4:
