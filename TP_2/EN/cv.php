@@ -1,7 +1,7 @@
 <div class="main-page">
     <div class="prem-flex">
         <div class="sec-flex">
-        <h1 style="text-align: center;">Mon CV</h1>
+        <h1 style="text-align: center;">My CV but English</h1>
                         <h2>Profil</h2>
                         <h4>Etudiant serieux et motivé passionné par le PHP</h4>
                         <h2>Parcours scolaire</h2>
@@ -16,7 +16,7 @@
                         <h4>Developpement de base de données.</h4>
                         <h2>Loisirs et centres d'intérêts</h2>
                         <h4>Un peu de tout.</h4>
-                        <h4>Pour plus de renseignements sur cette section, consultez :<a href="index.php?page=projets>">Mes Projets</a></h4>
+                        <h4>Pour plus de renseignements sur cette section, consultez :<a href="index.php?page=projets&lang=EN">Mes Projets</a></h4>
         </div>
     </div>
 </div>
