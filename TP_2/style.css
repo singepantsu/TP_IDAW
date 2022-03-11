@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 body {
-    background-color:aqua;
+    background-color:whitesmoke;
 }
 
 h1, .h1 {
@@ -19,21 +19,33 @@ h3, .h3 {
     color:darkslategray;
 }
 
-
 .overlay {
-    position: absolute;
+    position: fixed;
     width: 25%;
     top: 0;
-    bottom: 0;
     left: 0;
     background: linear-gradient(90deg, rgba(40,38,40,1) 0%, darkslategray 96%, rgb(49, 92, 92) 100%);
     border-right: 1px solid black;
-    height: 1000px;
+    height: 100%;
     overflow: hidden;
+}
+
+.menu {
+    margin-left: 15%;
+    color: aliceblue;
+    font-size: 1em;
+    text-decoration: antiquewhite;
+}
+
+li a{
+    color: white;
+}
+.main-page{
+    margin-left: 25%;
 }
 .prem-flex {
     display: flex;
-    margin-left: 25%;
+    flex-direction: row;
     justify-content: space-around;
     align-content: space-around;
     box-sizing: border-box;
@@ -41,11 +53,13 @@ h3, .h3 {
 .sec-flex {
     background-color:lightgreen;
     display: flex;
+    margin-bottom: 3em;
+    padding-bottom: 10px;
     border: 5px solid green ;
     flex-flow: column;
     align-items: center;
     text-align: center;
-    width: 40%
+    width: 45%
 }
 footer {
     background: linear-gradient(antiquewhite,rgb(162, 177, 177));
@@ -56,4 +70,15 @@ footer {
     width: 100%;
     border-top: 1px solid black;
     padding: 5px 10px 10px 10px; 
+}
+
+.simp-image {
+    width: 250px;
+    height: 300px;
+}
+
+#schnoz {
+    margin: 5px;
+    width: 35%;
+    height: auto;
 }

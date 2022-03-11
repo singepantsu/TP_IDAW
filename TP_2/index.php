@@ -11,7 +11,7 @@
     <h1 class="titre">John Doe</h1>
 </header>
 <?php
-    renderMenuToHTML($currentPageId);
+    renderMenuToHTML();
 ?>
 <section class="corps">
     <?php
