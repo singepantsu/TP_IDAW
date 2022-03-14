@@ -1,14 +1,11 @@
 <?php
 session_start();
-//echo $_GET['login'];
-//echo "<br>";
-//echo $_GET['password'];
+$servername = 'localhost';
+$username = 'root';
+$password = '';
+$database = 'newdb';
 
-//if (isset($_GET['deco'])){
-//session_unset();
-//session_destroy();
-//unset($_GET['deco']);
-//}
+$connexion = new mysqli($servername, $username, $password, $database);
     // on simule une base de données
     $users = array(
     // login => password

@@ -7,6 +7,18 @@ input{
     background:black;
     color: green;
 }
+
+table{
+    color: green;
+}
+
+th{
+    border: 2px solid lawngreen;
+}
+#hauttab{
+    background: rgb(49, 26, 49);
+    font-size: 1.5em;
+}
 .test{
     color: green;
     text-align: center;
