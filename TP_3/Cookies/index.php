@@ -7,7 +7,6 @@
         $content = $_GET['css'];
         setcookie("quelStyle", $content, time()+3600);
     }
-
 ?>
 <head>
     <meta charset="UTF-8">
@@ -35,8 +34,10 @@
             <td><input type="password" name="password"></td>
         </tr>
         <tr>
-            <th></th>
             <td><input type="submit" value="Se connecter..." /></td>
         </tr>
     </table>
 </form>
+<?php
+require_once('inscription.php');
+?>

@@ -1,0 +1,85 @@
+@charset "UTF-8";
+
+body {
+    background-color:aqua;
+}
+
+h1, .h1 {
+    font-size: 2.5rem;
+    color: darkblue;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+h2, .h2 {
+    font-size: 1.5rem;
+    color: darkblue;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+h3, .h3 {
+    font-size: 1rem;
+    color:darkslategray;
+}
+#schnoz {
+    margin: 5px;
+    width: 35%;
+    height: auto;
+}
+
+#lab {
+    font-size: 1.5rem;
+    font-family: fantasy;
+}
+#bouton {
+    color: black;
+    background-color: blueviolet;
+}
+
+.prem-flex {
+    display: flex;
+    margin-left: 25%;
+    justify-content: space-around;
+    align-content: space-around;
+    box-sizing: border-box;
+}
+.sec-flex {
+    background-color:lightgreen;
+    display: flex;
+    border: 5px solid green ;
+    flex-flow: column;
+    align-items: center;
+    text-align: center;
+    width: 40%
+}
+
+.simp-image {
+    height: 350px;
+    width: 300px;
+    margin-bottom: 10px;
+}
+.overlay {
+    position: absolute;
+    width: 25%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background-color: darkslategray;
+    max-height: 100%;
+    overflow: hidden;
+}
+.firstLayer {
+    position: absolute;
+    width: 75%;
+    top: 0;
+    bottom: 0;
+    left: 25%;
+    background-color: aqua;
+    max-height: 100%;
+    overflow: scroll;
+}
+.cv {
+    margin-left: 35%;
+    border: 10px solid wheat;
+    width: 40%;
+    background-color: wheat;
+    max-height:max-content;
+    min-height: 100%;
+}
