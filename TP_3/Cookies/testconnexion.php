@@ -10,7 +10,7 @@ $database = 'newdb';
 
 $connexion = new mysqli($servername, $username, $password, $database);
 $result = $connexion->query('SELECT * FROM user');
-if($result != false)
+if($result)
     $data=$result->fetch_all();
 echo "<table><tbody id=\"hauttab\"><tr>
         <th>id</th>
