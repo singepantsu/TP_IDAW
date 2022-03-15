@@ -17,9 +17,13 @@
                 border: 2px solid black;
             }
             #addStudentForm{
-                width: 25%;
-                padding: 1%;
+                position:fixed;
+                width: 300px;
+                padding: 10px;
                 border: 1px solid black;
+            }
+            #studentsTableBody{
+                border: 0.5px solid black;
             }
         </style>
     </head>
@@ -41,7 +45,7 @@
         <form id="addStudentForm" action="" onsubmit="onFormSubmit();">
             <div class="form-group row">
                 <label for="inputNom" class="col-sm-2 col-form-label">Nom:*</label>
-                <label for="inputPrenom" class="col-sm-2 col-form-label" style="margin-left: 7em;">Prénom:</label>
+                <label for="inputPrenom" class="col-sm-2 col-form-label" style="margin-left: 7em;">Prénom:*</label>
                 <div class="col-sm-3">
                     <input type="text" class="form-control" id="inputNom" placeholder="Doe">
                     <input type="text" class="form-control" id="inputPrenom" placeholder="John">
@@ -79,7 +83,7 @@
                     remarques: 'Hate John'
                 },
                 {
-                    id: 1,
+                    id: 2,
                     nom:"Doe",
                     prenom: "John",
                     aimeCours: false,
@@ -91,13 +95,37 @@
                 // prevent the form to be sent to the server
                 event.preventDefault();
                 let nom = $("#inputNom").val();
-                $("#studentsTableBody").append(`<tr><td>${nom}</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>`);
+                let prenom = $("#inputPrenom").val();
+                let date = $("#inputDate").val();
+                let aime = $("#inputAime").val();
+                let remarque = $("#inputRemarque").val();
+                if ((nom != "")&&(prenom != "")){
+                    $("#studentsTableBody").append(`<tr><td>${nom}</td><td>${prenom}</td><td>${date}</td><td>${trueToOui(aime)}</td><td>${remarque}</td><td></td></tr>`);
+                    students.push({
+                        id:(students.length),
+                        nom: nom,
+                        prenom: prenom,
+                        dateNaissance: date,
+                        aimeCours: aime,
+                        remarques: remarque
+                    })
+                } else{
+                    if (nom =="")
+                        window.alert("Pas de Nom renseigné!")
+                    else
+                        window.alert("Pas de Prénom renseigné!")
+                }   
+
             }
 
             function trueToOui(studentAime){
                 if (studentAime)
                     return "oui";
                 return "non";
+            }
+
+            function deleteStudent(idStud){
+                students.splice()
             }
             for (const stud in students){
                 console.debug(students[stud].nom);
