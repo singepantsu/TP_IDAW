@@ -25,6 +25,22 @@
             #studentsTableBody{
                 border: 0.5px solid black;
             }
+
+            .btn-primary{
+                line-height: 1;
+                font-size: 1em;
+                text-align: center;
+                color: #fff;
+                text-shadow: 1px 1px 1px #000;
+                border-radius: 10px;
+                background-color: rgba(220, 0, 0, 1);
+                background-image: linear-gradient(to top left,
+                                      rgba(0, 0, 0, .2),
+                                      rgba(0, 0, 0, .2) 30%,
+                                      rgba(0, 0, 0, 0));
+                box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                            inset -2px -2px 3px rgba(0, 0, 0, .6);
+            }
         </style>
     </head>
     <body>
@@ -45,7 +61,7 @@
         <form id="addStudentForm" action="" onsubmit="onFormSubmit();">
             <div class="form-group row">
                 <label for="inputNom" class="col-sm-2 col-form-label">Nom:*</label>
-                <label for="inputPrenom" class="col-sm-2 col-form-label" style="margin-left: 7em;">Prénom:*</label>
+                <label for="inputPrenom" class="col-sm-2 col-form-label" style='margin-left: 7em;'>Prénom:*</label>
                 <div class="col-sm-3">
                     <input type="text" class="form-control" id="inputNom" placeholder="Doe">
                     <input type="text" class="form-control" id="inputPrenom" placeholder="John">
@@ -68,7 +84,7 @@
             <div class="form-group row">
                 <span class="col-sm-2"></span>
                 <div class="col-sm-2">
-                    <button type="submit" class="btn btn-primary form-control">Submit</button>
+                    <button type="submit" class="btn form-control">Submit</button>
                 </div>
             </div>
         </form>
@@ -94,15 +110,16 @@
             function onFormSubmit() {
                 // prevent the form to be sent to the server
                 event.preventDefault();
+                let idStudent = students.length;
                 let nom = $("#inputNom").val();
                 let prenom = $("#inputPrenom").val();
                 let date = $("#inputDate").val();
                 let aime = $("#inputAime").val();
                 let remarque = $("#inputRemarque").val();
                 if ((nom != "")&&(prenom != "")){
-                    $("#studentsTableBody").append(`<tr><td>${nom}</td><td>${prenom}</td><td>${date}</td><td>${trueToOui(aime)}</td><td>${remarque}</td><td></td></tr>`);
+                    $("#studentsTableBody").append(`<tr><td>${nom}</td><td>${prenom}</td><td>${date}</td><td>${trueToOui(aime)}</td><td>${remarque}</td><td><button class="btn-primary" onclick="deleteStudent(this, ${idStudent})">delete</button></td></tr>`);
                     students.push({
-                        id:(students.length),
+                        id: idStudent,
                         nom: nom,
                         prenom: prenom,
                         dateNaissance: date,
@@ -124,12 +141,21 @@
                 return "non";
             }
 
-            function deleteStudent(idStud){
-                students.splice()
+            function deleteStudent(btn, idStud){
+                /*students.forEach(function(student, i) {
+                    if (student.id ==idStud){
+                        students.splice(i, 1);
+                        $('#student-'+student.id).remove();
+                    }
+                })*/
+                document.getElementsByClassName('table').deleteRow(idStud);
+                //var row = btn.parentNode.parentNode;
+                //row.parentNode.removeChild(row);
+                //students.splice(idStud - 1, 1);
             }
             for (const stud in students){
                 console.debug(students[stud].nom);
-                $("#studentsTableBody").append(`<tr><td>${students[stud].nom}</td><td>${students[stud].prenom}</td><td>${students[stud].dateNaissance}</td><td>${trueToOui(students[stud].aimeCours)}</td><td>${students[stud].remarques}</td><td></td></tr>`)
+                $("#studentsTableBody").append(`<tr><td>${students[stud].nom}</td><td>${students[stud].prenom}</td><td>${students[stud].dateNaissance}</td><td>${trueToOui(students[stud].aimeCours)}</td><td>${students[stud].remarques}</td><td><button class="btn-primary" onclick="deleteStudent(${students[stud].id})">delete</button></td></tr>`)
                 /*
                         var row = document.createElement("tr");
                         row.appendChild((document.createElement("td")).appendChild(stud.nom));
