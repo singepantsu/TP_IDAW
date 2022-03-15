@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset='utf-8'>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+        <title>tabletest</title>
+        <style>
+            body{ margin-top: 5em; }
+            .table {
+                margin-top: 100px;
+                margin-bottom: 100px;
+                border-collapse: collapse;
+            }
+            th {
+                padding: 5px;
+                border: 2px solid black;
+            }
+            #addStudentForm{
+                width: 25%;
+                padding: 1%;
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Prenom</th>
+                    <th scope="col">Date de naissance</th>
+                    <th scope="col">Aime le cours Web</th>
+                    <th scope="col">Remarques</th>
+                    <th scope="col">CRUD</th>
+                </tr>
+            </thead>
+            <tbody id="studentsTableBody">
+            </tbody>
+        </table>
+        <form id="addStudentForm" action="" onsubmit="onFormSubmit();">
+            <div class="form-group row">
+                <label for="inputNom" class="col-sm-2 col-form-label">Nom:*</label>
+                <label for="inputPrenom" class="col-sm-2 col-form-label" style="margin-left: 7em;">Prénom:</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="inputNom" placeholder="Doe">
+                    <input type="text" class="form-control" id="inputPrenom" placeholder="John">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputDate" class="col-sm-2 col-form-label">Date de naissance:</label>
+                <label for="inputAime" class="col-sm-2 col-form-label" style="margin-left: 2em;">Aime le cours web:</label>
+                <div class="col-sm-3">
+                    <input type="date" class="form-control" id="inputDate" value="2001-01-01">
+                    <input type="checkbox" class="form-control" id="inputAime" style="margin-left: 2em;">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputRemarque" class="col-sm-2 col-form-label">Remarques:</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="inputRemarque" placeholder="Très beau">
+                </div>
+            </div>
+            <div class="form-group row">
+                <span class="col-sm-2"></span>
+                <div class="col-sm-2">
+                    <button type="submit" class="btn btn-primary form-control">Submit</button>
+                </div>
+            </div>
+        </form>
+        <script>
+            let students = [
+                {
+                    id: 1,
+                    nom:"Does",
+                    prenom: "Jane",
+                    aimeCours: true,
+                    dateNaissance: '1002-10-10',
+                    remarques: 'Hate John'
+                },
+                {
+                    id: 1,
+                    nom:"Doe",
+                    prenom: "John",
+                    aimeCours: false,
+                    dateNaissance: '2001-01-01',
+                    remarques: 'Love jane'
+                }
+            ]
+            function onFormSubmit() {
+                // prevent the form to be sent to the server
+                event.preventDefault();
+                let nom = $("#inputNom").val();
+                $("#studentsTableBody").append(`<tr><td>${nom}</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>`);
+            }
+
+            function trueToOui(studentAime){
+                if (studentAime)
+                    return "oui";
+                return "non";
+            }
+            for (const stud in students){
+                console.debug(students[stud].nom);
+                $("#studentsTableBody").append(`<tr><td>${students[stud].nom}</td><td>${students[stud].prenom}</td><td>${students[stud].dateNaissance}</td><td>${trueToOui(students[stud].aimeCours)}</td><td>${students[stud].remarques}</td><td></td></tr>`)
+                /*
+                        var row = document.createElement("tr");
+                        row.appendChild((document.createElement("td")).appendChild(stud.nom));
+                        row.appendChild((document.createElement("td")).appendChild(stud.prenom));
+                        row.appendChild((document.createElement("td")).appendChild(stud.dateNaissance));
+                        row.appendChild((document.createElement("td")).appendChild(stud.nom));
+                        row.appendChild((document.createElement("td")).appendChild(stud.remarques));
+                        row.appendChild(document.createElement("th"));
+                        (document.getElementById("studentsTableBody")).appendChild(row);
+                        */
+                    }
+        </script>
+    </body>
+</html>

@@ -9,6 +9,7 @@ if (isset($_GET["new_login"]) && isset($_GET["new_pseudo"]) && isset($_GET["new_
     $new_log=$_GET["new_login"];
     $new_p=$_GET["new_pseudo"];
     $new_pass=$_GET["new_password"];
+    //J'ai du séparer sinon le navigateur lit pas la String
     $query = "INSER"."T INTO user ('ID','LOGIN', 'PASSWORD', 'PSEUDO') VALUES (NULL, '".$new_log."','".$new_pass."','".$new_p."')";
     $sub->query($query);
 }
