@@ -148,9 +148,9 @@
                         $('#student-'+student.id).remove();
                     }
                 })*/
-                document.getElementsByClassName('table').deleteRow(idStud);
-                //var row = btn.parentNode.parentNode;
-                //row.parentNode.removeChild(row);
+                //document.getElementsByClassName('table').deleteRow(idStud);
+                var row = btn.parentNode.parentNode;
+                row.parentNode.removeChild(row);
                 //students.splice(idStud - 1, 1);
             }
             for (const stud in students){
