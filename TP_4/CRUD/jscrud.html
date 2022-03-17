@@ -110,14 +110,14 @@
             function onFormSubmit() {
                 // prevent the form to be sent to the server
                 event.preventDefault();
-                let idStudent = students.length;
+                let idStudent = students.length + 1;
                 let nom = $("#inputNom").val();
                 let prenom = $("#inputPrenom").val();
                 let date = $("#inputDate").val();
                 let aime = $("#inputAime").val();
                 let remarque = $("#inputRemarque").val();
                 if ((nom != "")&&(prenom != "")){
-                    $("#studentsTableBody").append(`<tr><td>${nom}</td><td>${prenom}</td><td>${date}</td><td>${trueToOui(aime)}</td><td>${remarque}</td><td><button class="btn-primary" onclick="deleteStudent(this, ${idStudent})">delete</button></td></tr>`);
+                    $("#studentsTableBody").append(`<tr id="line ${idStudent}"><td>${nom}</td><td>${prenom}</td><td>${date}</td><td>${trueToOui(aime)}</td><td>${remarque}</td><td><button class="btn-primary" onclick="deleteStudent(${idStudent})">delete</button></td></tr>`);
                     students.push({
                         id: idStudent,
                         nom: nom,
@@ -141,7 +141,7 @@
                 return "non";
             }
 
-            function deleteStudent(btn, idStud){
+            function deleteStudent(idStud){
                 /*students.forEach(function(student, i) {
                     if (student.id ==idStud){
                         students.splice(i, 1);
@@ -149,13 +149,24 @@
                     }
                 })*/
                 //document.getElementsByClassName('table').deleteRow(idStud);
-                var row = btn.parentNode.parentNode;
-                row.parentNode.removeChild(row);
-                //students.splice(idStud - 1, 1);
+                var row = document.getElementById("line "+idStud);
+                if (window.confirm("Suprrimer cet élève?")){
+                    row.remove();
+                    students.splice(idStud - 1, 1);
+                    //console.log(students[idStud -1]);
+                    for (let i=idStud-1; i<students.length; i++){
+                        students[i].id--;
+                    }
+                }
             }
+
+            function editStudent(idStud){
+
+            }
+            
             for (const stud in students){
-                console.debug(students[stud].nom);
-                $("#studentsTableBody").append(`<tr><td>${students[stud].nom}</td><td>${students[stud].prenom}</td><td>${students[stud].dateNaissance}</td><td>${trueToOui(students[stud].aimeCours)}</td><td>${students[stud].remarques}</td><td><button class="btn-primary" onclick="deleteStudent(${students[stud].id})">delete</button></td></tr>`)
+                console.debug(students);
+                $("#studentsTableBody").append(`<tr id = "line ${students[stud].id}"><td>${students[stud].nom}</td><td>${students[stud].prenom}</td><td>${students[stud].dateNaissance}</td><td>${trueToOui(students[stud].aimeCours)}</td><td>${students[stud].remarques}</td><td><button class="btn-primary" onclick="deleteStudent(${students[stud].id})">delete</button></td></tr>`)
                 /*
                         var row = document.createElement("tr");
                         row.appendChild((document.createElement("td")).appendChild(stud.nom));
