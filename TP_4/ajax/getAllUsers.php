@@ -10,8 +10,8 @@
         die('Erreur de connexion: ' .$connexion->connect_error);
     }
 
-    $result = $connexion->query('SELECT * FROM utilisateur');
+    $result = $connexion->query('SELECT * FROM `utilisateur`');
     $getAll = $result->fetch_all();
     if($result)
-        echo json_encode($all);
+        echo json_encode($getAll);
 ?>

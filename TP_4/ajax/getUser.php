@@ -12,9 +12,10 @@
 
     if(isset($_POST['idStud'])){
         $id = $_POST['idStud'];
-        $query = "DELETE FROM utilisateur WHERE utilisateur.id = $id";
+        $query = "SELECT * FROM `utilisateur` WHERE id = $id";
         $result = $connexion->query($query);
-        if ($result)
-            echo json_encode($result);
+        $getOne = $result->fetch_row();
+        if($result)
+            echo json_encode($getOne);
     }
 ?>

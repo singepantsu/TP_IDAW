@@ -10,7 +10,8 @@
         die('Erreur de connexion: ' .$connexion->connect_error);
     }
 
-    if(isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['date']) && isset($_POST['aime']) && isset($_POST['remarque'])){
+    if(isset($_POST['idStud']) && isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['date']) && isset($_POST['aime']) && isset($_POST['remarque'])){
+        $id = $_POST['idStud'];
         $nom = $_POST['nom'];
         $prenom = $_POST['prenom'];
         $dateNaissance = $_POST['date'];
@@ -20,10 +21,7 @@
             $aimeCours = 'non';
         }
         $remarque = $_POST['remarque'];
-
-        $query = "INSERT INTO utilisateur (id, nom, prenom, date_naissance, aime_cours, remarque) VALUES (NULL, '$nom', '$prenom', '$dateNaissance', '$aimeCours', '$remarque')";
+        $query = "UPDATE `utilisateur` SET `nom` = '$nom',`prenom` = '$prenom',`date_naissance` = '$dateNaissance', `aime_cours` = '$aimeCours', `remarque` = '$remarque' WHERE utilisateur.id = $id";
         $result = $connexion->query($query);
-        if($result)
-            echo $connection->insert_id;
     }
 ?>

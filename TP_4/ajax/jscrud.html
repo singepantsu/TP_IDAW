@@ -89,24 +89,6 @@
             </div>
         </form>
         <script>
-            let students = [
-                {
-                    id: 1,
-                    nom:"Does",
-                    prenom: "Jane",
-                    aimeCours: true,
-                    dateNaissance: '1002-10-10',
-                    remarques: 'Hate John'
-                },
-                {
-                    id: 2,
-                    nom:"Doe",
-                    prenom: "John",
-                    aimeCours: false,
-                    dateNaissance: '2001-01-01',
-                    remarques: 'Love jane'
-                }
-            ]
             function onFormSubmit() {
                 // prevent the form to be sent to the server
                 event.preventDefault();
@@ -116,9 +98,10 @@
                 let aime = $("#inputAime").val();
                 let remarque = $("#inputRemarque").val();
                 if ((nom != "")&&(prenom != "")){
-                    let dataToSend = {nom, prenom, dateNaissance, aimeCours, commentaire};
-                    $.post('addUser.php',dataToSend,function(){
-                        $("#studentsTableBody").append(`<tr id="line ${idStudent}"><td>${nom}</td><td>${prenom}</td><td>${date}</td><td>${trueToOui(aime)}</td><td>${remarque}</td><td><button class="btn-primary" onclick="deleteStudent(${idStudent})">delete</button></td></tr>`);
+                    let dataToSend = {nom, prenom, date, aime, remarque};
+                    $.post('addUser.php',dataToSend,function(data){
+                        const idStud = data;
+                        $("#studentsTableBody").append(`<tr id="line ${idStud}"><td>${nom}</td><td>${prenom}</td><td>${date}</td><td>${trueToOui(aime)}</td><td>${remarque}</td><td><button class="btn-primary" onclick="deleteStudent(${idStud})">delete</button></td></tr>`);
                     });
                 } else{
                     if (nom =="")
@@ -136,42 +119,41 @@
             }
 
             function deleteStudent(idStud){
-                /*students.forEach(function(student, i) {
-                    if (student.id ==idStud){
-                        students.splice(i, 1);
-                        $('#student-'+student.id).remove();
-                    }
-                })*/
-                //document.getElementsByClassName('table').deleteRow(idStud);
                 var row = document.getElementById("line "+idStud);
-                if (window.confirm("Suprrimer cet élève?")){
-                    row.remove();
-                    students.splice(idStud - 1, 1);
-                    //console.log(students[idStud -1]);
-                    for (let i=idStud-1; i<students.length; i++){
-                        students[i].id--;
-                    }
+                if (window.confirm("Suprimer cet élève?")){
+                    let dataToSend = {idStud};
+                    $.post('deleteUser.php', dataToSend,function(data){
+
+                        row.remove();
+                    });
                 }
             }
 
             function editStudent(idStud){
-
+                var row = document.getElementById("line "+idStud);
+                let dataToSend={idStud};
+                $.post('getUser.php', dataToSend, function(data){
+        console.debug(data);
+                    data = JSON.parse(data);
+                    let nom = window.prompt("nouveau nom: ",data[1]);
+                    let prenom = window.prompt("nouveau prénom: ",data[2]);
+                    let date = window.prompt("nouvelle date: ",data[3]);
+                    let aime = window.prompt("nouvel avis sur le cours: ",data[4]);
+                    let remarque = window.prompt("nouvelle remarque: ",data[5]);
+                    let newData = {idStud,nom,prenom,date,aime,remarque};
+                    $.post('editUser.php', newData, function(){
+                        location.reload();
+                    });
+                })
             }
+            $.get('getAllUsers.php', function(data){
+                console.debug(data);
+                data = JSON.parse(data);
+                data.forEach(row =>{
+                    $("#studentsTableBody").append(`<tr id = "line ${row[0]}"><td>${row[1]}</td><td>${row[2]}</td><td>${row[3]}</td><td>${row[4]}</td><td>${row[5]}</td><td><button class="btn-primary" onclick="deleteStudent(${row[0]})">delete</button></td></tr>`)
+                });
+            })
             
-            for (const stud in students){
-                console.debug(students);
-                $("#studentsTableBody").append(`<tr id = "line ${students[stud].id}"><td>${students[stud].nom}</td><td>${students[stud].prenom}</td><td>${students[stud].dateNaissance}</td><td>${trueToOui(students[stud].aimeCours)}</td><td>${students[stud].remarques}</td><td><button class="btn-primary" onclick="deleteStudent(${students[stud].id})">delete</button></td></tr>`)
-                /*
-                        var row = document.createElement("tr");
-                        row.appendChild((document.createElement("td")).appendChild(stud.nom));
-                        row.appendChild((document.createElement("td")).appendChild(stud.prenom));
-                        row.appendChild((document.createElement("td")).appendChild(stud.dateNaissance));
-                        row.appendChild((document.createElement("td")).appendChild(stud.nom));
-                        row.appendChild((document.createElement("td")).appendChild(stud.remarques));
-                        row.appendChild(document.createElement("th"));
-                        (document.getElementById("studentsTableBody")).appendChild(row);
-                        */
-                    }
         </script>
     </body>
 </html>
